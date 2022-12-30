@@ -1,34 +1,15 @@
-// Declarative //
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+node {   
+    stage('Clone repository') {
+        git credentialsId: 'git', url: 'https://github.com/Xredys-19/eb-flare'
+    }
+    
+    stage('Build image') {
+       dockerImage = docker.build("meikel19/eb-flare-test:latest")
+    }
+    
+ stage('Push image') {
+        withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+        dockerImage.push()
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
-}
-// Script //
-node {
-    stage('Build') {
-        echo 'Building....'
-    }
-    stage('Test') {
-        echo 'Building....'
-    }
-    stage('Deploy') {
-        echo 'Deploying....'
-    }
+    }    
 }
