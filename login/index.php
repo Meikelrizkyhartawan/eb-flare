@@ -129,7 +129,7 @@
 
     <div class="container mt-auto windah pt-5">
       <a class="font-weight-bold bringHeader">
-        <p style="font-family: sans-serif;" class="font-weight-bold text-light display-1 text-center pt-5">EB - Flare</p>
+        <p style="font-family: sans-serif;" class="font-weight-bold text-light display-1 text-center pt-5">EB - Flare Keren</p>
       </a>
     <div class="row justify-content-center ">
         <div class="col-md-5">
